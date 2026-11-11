@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#176b38">
+  <title>Anuario 2026 | Ciencia y Virtud</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <img src="escudo.png" alt="Escudo institucional">
+        <div><span class="eyebrow">PROMOCIÓN 2026</span><h1>Nuestro anuario</h1><p>Institución Educativa Eugenio Ferro Falla</p></div>
+      </div>
+      <div class="top-actions">
+        <button class="btn btn-light" id="printBtn">Imprimir / PDF</button>
+        <button class="btn btn-gold" id="exportBtn">Descargar anuario HTML</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro">
+        <div><span class="eyebrow">31 HISTORIAS · 31 RECUERDOS</span><h2>Un libro, muchas memorias.</h2><p>Completa la doble página de cada estudiante y pasa las hojas como en un libro (también con las flechas ← →). Los cambios se guardan automáticamente en este dispositivo.</p></div>
+        <div class="progress-wrap"><div class="progress-label"><span>Estudiantes completados</span><strong id="progressText">0 de 31</strong></div><div class="progress"><span id="progressBar"></span></div></div>
+      </section>
+
+      <section class="book-area">
+        <aside class="side-note"><span class="leaf">✦</span><p>“Cada recuerdo es una página de la historia que escribimos juntos.”</p><small>CIENCIA · VIRTUD · FUTURO</small></aside>
+        <div class="book-wrap">
+          <article class="cover" id="cover">
+            <div class="cover-frame">
+              <span class="cover-top">PROMOCIÓN 2026</span>
+              <img src="escudo.png" alt="Escudo institucional">
+              <h2>ANUARIO</h2>
+              <div class="cover-year">2026</div>
+              <p>INSTITUCIÓN EDUCATIVA<br>EUGENIO FERRO FALLA</p>
+              <small>CIENCIA · VIRTUD</small>
+              <button class="btn btn-gold" id="openBtn">Abrir el libro →</button>
+            </div>
+          </article>
+          <article class="book" id="book" hidden>
+            <div class="spine"></div>
+            <div class="bpage page-l" id="pageL">
+              <div class="page-head"><span id="pageNumber">ESTUDIANTE 01 / 31</span><span class="status" id="saveStatus">Guardado</span></div>
+              <div class="photo-column">
+                <div class="photo-frame" id="photoFrame"><div class="photo-placeholder"><span>＋</span><b>Fotografía tipo carné</b><small>Selecciona una foto</small></div><img id="photoPreview" alt="Fotografía del estudiante" hidden></div>
+                <label class="upload-btn" for="photoInput">＋ Agregar fotografía</label>
+                <input id="photoInput" type="file" accept="image/*" hidden>
+                <label class="field name-field"><span>Nombre completo</span><input id="name" placeholder="Nombre completo del estudiante"></label>
+                <div class="signature-title">MI FIRMA</div>
+                <div class="signature-frame" id="signatureFrame"><span>Firma digitalizada</span><img id="signaturePreview" alt="Firma digitalizada" hidden></div>
+                <label class="upload-btn upload-small" for="signatureInput">＋ Agregar firma</label>
+                <input id="signatureInput" type="file" accept="image/*" hidden>
+              </div>
+              <div class="page-footer"><span>ANUARIO ESTUDIANTIL · 2026</span></div>
+            </div>
+            <div class="bpage page-r" id="pageR">
+              <div class="book-ribbon">CIENCIA Y VIRTUD</div>
+              <div class="fields">
+                <label class="field"><span>01 · Frase favorita</span><textarea id="phrase" rows="2" placeholder="Una frase que te representa..."></textarea></label>
+                <label class="field"><span>02 · Recuerdo favorito</span><textarea id="memory" rows="4" placeholder="Un momento que siempre recordarás..."></textarea></label>
+                <label class="field"><span>03 · Lista de aspiraciones</span><textarea id="aspirations" rows="5" placeholder="Mis sueños, metas y proyectos..."></textarea></label>
+                <label class="field"><span>04 · Agradecimientos</span><textarea id="thanks" rows="5" placeholder="Quiero agradecer a..."></textarea></label>
+              </div>
+              <div class="page-footer"><span>INSTITUCIÓN EDUCATIVA EUGENIO FERRO FALLA</span><span id="footerPage">01</span></div>
+            </div>
+          </article>
+        </div>
+        <aside class="side-note right-note"><span class="leaf">✦</span><p>“El futuro pertenece a quienes creen en sus sueños.”</p><small>PROMOCIÓN 2026</small></aside>
+      </section>
+
+      <nav class="book-nav" aria-label="Navegación del anuario">
+        <button class="btn btn-outline" id="prevBtn">← Anterior</button>
+        <div class="page-picker"><label for="studentSelect">Ir a la página</label><select id="studentSelect"></select></div>
+        <button class="btn btn-green" id="nextBtn">Siguiente →</button>
+      </nav>
+      <div class="bottom-actions"><button class="text-btn" id="clearBtn">Limpiar esta página</button><span>Los datos se guardan en el navegador de este dispositivo.</span><button class="text-btn" id="backupBtn">Exportar copia de seguridad</button><input id="backupInput" type="file" accept="application/json" hidden></div>
+    </main>
+    <footer class="site-footer"><img src="escudo.png" alt=""><span>CIENCIA Y VIRTUD</span><span>·</span><span>GENERACIÓN 2026</span></footer>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
